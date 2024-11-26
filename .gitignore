@@ -1,0 +1,9 @@
+/build/*.spec
+/build/build/
+/build/dist
+/__pycache__/
+/.idea/
+/addons/
+/custom/
+/ttc/
+/app.ini

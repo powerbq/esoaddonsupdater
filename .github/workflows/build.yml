@@ -1,0 +1,23 @@
+name: Build and release
+
+on:
+  - push
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:
+      - name: Build
+        uses: sayyid5416/pyinstaller@v1
+        with:
+          python_ver: '3.12'
+          spec: 'app.spec'
+          requirements: 'requirements.txt'
+          upload_exe_with_name: 'app'
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/app.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
